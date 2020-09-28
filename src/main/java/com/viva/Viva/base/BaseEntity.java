@@ -1,4 +1,4 @@
-package base;
+package com.viva.Viva.base;
 
 import lombok.Getter;
 import lombok.Setter;
