@@ -4,9 +4,9 @@ import com.viva.Viva.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 //@Setter
 //@Getter
@@ -27,7 +27,20 @@ public class BusinessProvider extends BaseEntity {
     @Column(name="ACTIVE", nullable = false)
     private Boolean active;
 
+    @Column(name="ABN_NUMBER" , nullable = false)
+    private Integer abnNumber;
+
+    @Column(name="VERIFIED_ABN_NUMBER", nullable = false)
+    private Boolean verifiedAbnNumber;
+
+    @Column(name="BADGE_ID" , nullable = false)
+    private Integer bardgeId;
+
+    @Column(name="MEMBERSHIP", nullable = true)
+    private Integer membership;
 
 
+    @OneToMany(mappedBy = "membership", cascade = CascadeType.ALL)
+    private Set<BusinessProvider> businessProviderSet = new HashSet<>();
 }
 
